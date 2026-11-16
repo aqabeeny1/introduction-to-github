@@ -1,1 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کانال روبیکا | بنیامین آقا</title>
+    <!-- فونت فارسی وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
 
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 20% 30%, #1a1a2e, #16213e, #0f3460);
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* افکت ذرات نورانی */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 32px;
+            padding: 50px 40px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: cardPop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        @keyframes cardPop {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        /* آیکون روبیکا (طرح ساده) */
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            box-shadow: 0 15px 35px rgba(255, 65, 108, 0.4);
+            animation: pulse 2s infinite;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(255, 65, 108, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 65, 108, 0); }
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .channel-name {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            background: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            direction: ltr;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* دکمه اصلی خفن */
+        .rubika-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(145deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 20px 45px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 15px 30px -5px rgba(255, 65, 108, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .rubika-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 40px -5px rgba(255, 65, 108, 0.8);
+            background: linear-gradient(145deg, #ff4b2b, #ff416c);
+        }
+
+        .rubika-btn:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 10px 20px -5px rgba(255, 65, 108, 0.7);
+        }
+
+        /* افکت درخشش روی دکمه */
+        .rubika-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .rubika-btn:hover::before {
+            left: 100%;
+        }
+
+        /* قلب متحرک */
+        .heart {
+            display: inline-block;
+            animation: heartBeat 1.5s ease infinite;
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 10px #ff4b2b);
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* متن پایین */
+        .footer-note {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-note span {
+            color: #ff4b2b;
+            font-weight: bold;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 480px) {
+            .card {
+                padding: 35px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .channel-name {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .rubika-btn {
+                padding: 16px 25px;
+                font-size: 1.2rem;
+            }
+            .logo-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
+        }
+
+        /* متن سه‌بعدی کوچک */
+        .glow-text {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 75, 43, 0.7), 0 0 20px rgba(255, 65, 108, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- ذرات نورانی در پس‌زمینه -->
+    <div class="particle" style="width: 80px; height: 80px; top: 10%; left: 5%; animation-duration: 18s;"></div>
+    <div class="particle" style="width: 120px; height: 120px; top: 70%; left: 80%; animation-duration: 22s; animation-delay: 2s;"></div>
+    <div class="particle" style="width: 50px; height: 50px; top: 40%; left: 90%; animation-duration: 15s; animation-delay: 5s;"></div>
+    <div class="particle" style="width: 100px; height: 100px; top: 80%; left: 15%; animation-duration: 20s; animation-delay: 1s;"></div>
+    <div class="particle" style="width: 60px; height: 60px; top: 20%; left: 70%; animation-duration: 25s; animation-delay: 3s;"></div>
+    <div class="particle" style="width: 40px; height: 40px; top: 60%; left: 30%; animation-duration: 12s; animation-delay: 4s;"></div>
+
+    <div class="card">
+        <!-- آیکون روبیکا با استایل خاص -->
+        <div class="logo-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+            </svg>
+        </div>
+
+        <h1 class="glow-text">کانال رسمی</h1>
+        <p class="subtitle">به دنیای ما خوش آمدید</p>
+
+        <div class="channel-name">
+            BENYAMIN_AQA
+        </div>
+
+        <!-- دکمه اصلی با قلب -->
+        <a href="https://rubika.ir/BENYAMIN_AQA" target="_blank" class="rubika-btn">
+            <span class="heart">❤️</span>
+            عضویت در کانال
+            <span class="heart">❤️</span>
+        </a>
+
+        <div class="footer-note">
+            با کلیک روی دکمه به روبیکا منتقل می‌شوید
+        </div>
+    </div>
+</body>
+</html>
